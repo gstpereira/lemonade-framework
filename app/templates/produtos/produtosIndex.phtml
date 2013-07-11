@@ -1,0 +1,23 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$("#submit").click(function(){
+			$.ajax({
+				url:"/Lemonade/produtos/pesquisa",
+				data: $("#form").serialize(),
+				type:"POST",
+				dataType : 'json',
+				success:function(retorno){
+					if(retorno){
+						alert("Ola " + retorno.nome);
+					}
+				}
+			});
+		});
+	});
+</script>
+<form method="post" id="form">
+  <input name="name" value="" />
+  <input type="button" value="Enviar" id="submit" />
+</form>
